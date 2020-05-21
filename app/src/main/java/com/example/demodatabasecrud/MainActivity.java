@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 DBHelper dbh = new DBHelper(MainActivity.this);
                 al.clear();
-                al.addAll(dbh.getAllNotes());
+                al.addAll(dbh.getAllNotes(""));
                 dbh.close();
 
                 String txt = "";
