@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -31,6 +32,26 @@ public class EditActivity extends AppCompatActivity {
 
         tvID.setText("ID: " + data.getId());
         etContent.setText(data.getNoteContent());
+
+        btnUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DBHelper dbh = new DBHelper(EditActivity.this);
+                data.setNoteContent(etContent.getText().toString());
+                dbh.updateNote(data);
+                dbh.close();
+            }
+        });
+
+        btnDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DBHelper dbh = new DBHelper(EditActivity.this);
+                dbh.deleteNote(data.getId());
+                dbh.close();
+            }
+        });
+
 
     }
 }
