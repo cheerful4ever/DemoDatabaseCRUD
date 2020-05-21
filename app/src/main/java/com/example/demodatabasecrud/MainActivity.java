@@ -27,6 +27,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //initialize the variables with UI here
+        btnAdd = findViewById(R.id.btnAdd);
+        btnEdit = findViewById(R.id.btnEdit);
+        btnRetrieve = findViewById(R.id.btnRetrieve);
+        etContent = findViewById(R.id.etContent);
 
         al = new ArrayList<Note>();
 
